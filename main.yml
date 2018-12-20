@@ -1,0 +1,9 @@
+---
+- name: Configure Pi Cluster
+  hosts: pi-cluster
+  remote_user: pi
+  become: yes
+  become_method: sudo
+  roles:
+  - common
+  - docker

@@ -1,0 +1,18 @@
+---
+  - name: install common packages
+    action: apt pkg={{item}} state=installed
+    with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - locales
+    - build-essential
+    - acl
+    - ntp
+    - htop
+    - git
+    - supervisor
+    - python-pip
+    - python3-pip
+    - nginx
