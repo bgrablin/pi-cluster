@@ -1,0 +1,5 @@
+# Reloads all unit files.  Basically a soft restart
+- name: reload systemd
+  become: yes
+  become_method: sudo  
+  command: systemctl daemon-reload
