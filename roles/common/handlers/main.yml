@@ -1,4 +1,4 @@
-# Reloads all unit files.  Basically a soft restart
+# Reloads all unit files.  Basically a soft restart.  Has not been tested 12/21/2018
 - name: reload systemd
   become: yes
   become_method: sudo  
