@@ -16,9 +16,8 @@
     - python-pip
     - python3-pip
     - nginx
-    notify: reload systemd  # Needs to be tested, and verified if required.  Has not been tested 12/21/2018
+    notify: reload systemd  # Tested on Pi-Stack already configured from Master Branch
   
- # Output Raspberry Pi Model. Has not been tested 12/21/2018
   - name: Check Rasp model
     command: cat /proc/device-tree/model
     register: piversion

@@ -1,6 +1,15 @@
 Created Development Branch 12/21/2018
 
-My Notes:
+##  HOW TO CHANGE GIT BRANCH
+Use the checkout command to switch branch.
+
+$ git checkout <branch>
+Switch to the branch "issue1" by doing the following.
+
+$ git checkout issue1
+Switched to branch 'issue1'
+
+# My Notes:
 
 /* Ansible Folder Structure
 
