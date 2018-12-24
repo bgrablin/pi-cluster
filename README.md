@@ -183,3 +183,30 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 ###  Still had Issues
 
 Try ssh-keyscan 192.168.1.xxx >> ~/.ssh/known_hosts
+
+
+#################################################################################
+#################################################################################
+
+Configuring Docker natively
+
+pi@raspberrypi:~ $ sudo docker swarm init --advertise-addr 192.168.1.134
+Swarm initialized: current node (tz6ek9atjcdlf0drkxzj8k7wj) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-466431yc975tujjkp5jqr6vqoqmad29q2dzpkmibg6qtces54f-0c8xy8qneb6oze9csya0mnbli 192.168.1.134:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+[vagrant@rhel7 pi-cluster]$ ansible nodes -i hosts -a "docker swarm join --token SWMTKN-1-466431yc975tujjkp5jqr6vqoqmad29q2dzpkmibg6qtces54f-0c8xy8qneb6oze9csya0mnbli 192.168.1.134:2377" -s
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in favor of the "become" command line arguments. This feature will be removed in
+version 2.9. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+192.168.1.137 | CHANGED | rc=0 >>
+This node joined a swarm as a worker.
+
+192.168.1.136 | CHANGED | rc=0 >>
+This node joined a swarm as a worker.
+
+192.168.1.135 | CHANGED | rc=0 >>
+This node joined a swarm as a worker.
