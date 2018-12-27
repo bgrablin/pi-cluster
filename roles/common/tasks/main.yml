@@ -24,3 +24,6 @@
   - name: Debug each entry of my hosts
     debug:
       msg: "System {{ inventory_hostname }} is a {{ piversion.stdout }}"
+
+  - name: Update Raspberry Pi firmware
+    command: sudo apt-get install rpi-update && echo Y | sudo rpi-update
