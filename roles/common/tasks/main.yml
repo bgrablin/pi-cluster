@@ -26,11 +26,11 @@
     debug:
       msg: "System {{ inventory_hostname }} is a {{ piversion.stdout }}"
 
-  - name: Run kernel upgrade (this can take up to 10 minutes)
-    command: /usr/bin/rpi-update
-    register: rpiupdate
-    tags:
-      - system-upgrade
+  # - name: Run kernel upgrade (this can take up to 10 minutes)
+  #   command: /usr/bin/rpi-update
+  #   register: rpiupdate
+  #   tags:
+  #     - system-upgrade
 
   - name: 'Update APT package cache'
     action: apt update_cache=yes
