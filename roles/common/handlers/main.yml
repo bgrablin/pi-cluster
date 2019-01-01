@@ -3,3 +3,6 @@
   become: yes
   become_method: sudo  
   command: systemctl daemon-reload
+
+- name: Restart ssh
+  service: name=ssh state=restarted

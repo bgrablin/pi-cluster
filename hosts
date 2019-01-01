@@ -1,15 +1,16 @@
-[pi-cluster]
-192.168.1.13[4:7]
+[pis:children]
+pis_manager
+pis_workers
 
-[masters]
-192.168.1.134
-192.168.1.135
+[pis_manager]
+pi-1 ansible_host=192.168.1.134
 
-[nodes]
-192.168.1.136
-192.168.1.137
+[pis_workers]
+pi-2 ansible_host=192.168.1.135
+pi-3 ansible_host=192.168.1.136
+pi-4 ansible_host=192.168.1.137
 
-[pi-cluster:vars]
+[pis:vars]
 ansible_ssh_user=pi
 ansible_ssh_pass=raspberry
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'

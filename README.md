@@ -214,5 +214,8 @@ This node joined a swarm as a worker.
 #################################################################################
 #################################################################################
 
-Vagrant Up
-Vagrant Putty
+# ######## DEBUG
+#   - name:  "Swarm Mode"
+#     debug:
+#       msg: "{{ docker_info.stdout }}"
+# ######## DEBUG

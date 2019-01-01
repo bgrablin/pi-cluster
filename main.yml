@@ -1,9 +1,8 @@
 ---
-- name: Configure Pi Cluster
-  hosts: pi-cluster
+- name: Configure Cluster, Install Docker, Initialize Swarm and Join Workers
+  hosts: all
   remote_user: pi
   become: yes
-  become_method: sudo
   roles:
   - common
   - docker
