@@ -1,0 +1,36 @@
+version: "3.4"
+
+services:
+  traefik:
+    image: bgrablin/traefik
+    command:
+      - "--api"
+      - "--docker"
+      - "--docker.swarmmode"
+      - "--docker.domain=grablin.lan"
+      - "--docker.watch"
+      - "--logLevel=DEBUG"
+      - "--web"
+    networks:
+      - traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+      - 8080:8080
+    deploy:
+      mode: global
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == manager]
+      labels:
+        - "traefik.backend=traefik"
+        - "traefik.enable=true"
+        - "traefik.port=8080"
+        - "traefik.frontend.rule=Host:traefik.grablin.lan"
+
+
+networks:
+  traefik:
+    external: true
