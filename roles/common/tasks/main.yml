@@ -44,7 +44,6 @@
         - supervisor
         - python-pip
         - python3-pip
-        - nginx
         - rpi-update
       state: present
     notify: reload systemd
