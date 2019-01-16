@@ -15,7 +15,6 @@
     - supervisor
     - python-pip
     - python3-pip
-    - nginx
     notify: reload systemd  # Tested on Pi-Stack already configured from Master Branch
   
   - name: Check Rasp model
