@@ -1,0 +1,20 @@
+version: "3.4"
+
+services:
+  visualizer:
+    image: dockersamples/visualizer
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+      labels:
+        - "traefik.enable=true"
+        - "traefik.port=8080"
+        - "traefik.docker.network=mystack_traefik-net"
+        - "traefik.frontend.rule=Host:viz.test.grayanalytics.io"
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
